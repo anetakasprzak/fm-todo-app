@@ -1,7 +1,11 @@
-import { Wrapper } from "./App";
+import { ImageContainer, Wrapper } from "./App";
 
 function App() {
-  return <Wrapper>SET UP</Wrapper>;
+  return (
+    <Wrapper>
+      <ImageContainer />
+    </Wrapper>
+  );
 }
 
 export default App;
