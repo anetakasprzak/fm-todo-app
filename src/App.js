@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-items: center;
   object-fit: cover;
   background-color: #fafafa;
+  color: #494c6b;
 `;
 
 export const ImageContainer = styled.div`
@@ -21,3 +22,11 @@ export const ImageContainer = styled.div`
     background-image: url("./images/bg-desktop-light.jpg");
   }
 `;
+
+export const MainContent = styled.div``;
+export const Logo = styled.h1``;
+export const Input = styled.input``;
+export const List = styled.ul``;
+export const Item = styled.li``;
+export const Form = styled.form``;
+export const Button = styled.button``;
