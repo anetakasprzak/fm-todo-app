@@ -53,8 +53,41 @@ export const Input = styled.input``;
 export const List = styled.ul``;
 
 export const Item = styled.li`
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #fff;
+  display: flex;
+  gap: 1.5rem;
+`;
+
+export const Label = styled.label`
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  > * {
+    grid-area: 1/1;
+  }
+`;
+
+export const Checkbox = styled.input`
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, #e3e4f1, #e3e4f1) border-box;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+
+  &:hover {
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(to right, #55ddff, #c058f3) border-box;
+  }
+
+  &:checked {
+    background: linear-gradient(#c058f3, #55ddff) padding-box,
+      linear-gradient(to right, #55ddff, #c058f3) border-box;
+  }
 `;
 
 export const Form = styled.form``;

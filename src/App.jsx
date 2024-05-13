@@ -9,12 +9,14 @@ import {
   Item,
   Button,
   Form,
+  Label,
+  Checkbox,
 } from "./App";
 
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const [todoText, setTodoText] = useState({});
+  const [todoText, setTodoText] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +30,7 @@ function App() {
     };
 
     setTodos((prevTodos) => [...prevTodos, newTodo]);
+    setTodoText("");
   }
 
   return (
@@ -39,13 +42,21 @@ function App() {
           <Input
             type="text"
             name="todo"
+            value={todoText}
             onChange={(e) => setTodoText(e.target.value)}
           />
           <Button>ADD</Button>
         </Form>
         <List>
           {todos?.map((item) => (
-            <Item key={item.id}>{item.text}</Item>
+            <Item key={item.id}>
+              <Label htmlFor="test">
+                <Checkbox id="test" type="checkbox" />
+                <img src="./images/icon-check.svg" />
+              </Label>
+              {item.text}
+              <img src="./images/icon-cross.svg" />
+            </Item>
           ))}
         </List>
       </MainContent>
