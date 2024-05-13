@@ -12,27 +12,39 @@ import {
 } from "./App";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "clean house",
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
-  const [todo, setTodo] = useState({});
+  const [todoText, setTodoText] = useState({});
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (todoText === "") return;
+
+    const newTodo = {
+      id: todos.length + 1,
+      text: todoText,
+      completed: false,
+    };
+
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  }
 
   return (
     <Wrapper>
       <ImageContainer />
       <MainContent>
         <Logo>TODO</Logo>
-        <Form>
-          <Input type="text" name="todo" />
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="todo"
+            onChange={(e) => setTodoText(e.target.value)}
+          />
           <Button>ADD</Button>
         </Form>
         <List>
-          {todos.map((item) => (
+          {todos?.map((item) => (
             <Item key={item.id}>{item.text}</Item>
           ))}
         </List>

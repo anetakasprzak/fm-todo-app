@@ -52,7 +52,10 @@ export const Input = styled.input``;
 
 export const List = styled.ul``;
 
-export const Item = styled.li``;
+export const Item = styled.li`
+  font-size: 16px;
+  color: #fff;
+`;
 
 export const Form = styled.form``;
 
