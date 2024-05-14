@@ -12,6 +12,7 @@ import {
   Label,
   Checkbox,
   ItemBox,
+  DeleteBtn,
 } from "./App";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
     setTodoText("");
   }
 
+  function handleDeleteItem(id) {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <Wrapper>
       <ImageContainer />
@@ -45,6 +50,7 @@ function App() {
           <Input
             type="text"
             name="todo"
+            placeholder="Create a new todo..."
             value={todoText}
             onChange={(e) => setTodoText(e.target.value)}
           />
@@ -60,7 +66,10 @@ function App() {
                 </Label>
                 {item.text}
               </ItemBox>
-              <img src="./images/icon-cross.svg" />
+              <DeleteBtn
+                src="./images/icon-cross.svg"
+                onClick={() => handleDeleteItem(item.id)}
+              />
             </Item>
           ))}
         </List>

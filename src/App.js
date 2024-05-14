@@ -22,12 +22,10 @@ export const ImageContainer = styled.div`
 export const MainContent = styled.div`
   width: 90vw;
   padding: 0 2.4rem;
-  display: grid;
-  align-self: center;
-  justify-self: center;
   margin: -15rem auto;
-
-  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 `;
 
 export const Logo = styled.h1`
@@ -35,6 +33,7 @@ export const Logo = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 1rem;
+  margin-bottom: 2.4rem;
 
   @media only screen and (min-width: 28rem) {
     font-size: 3.2rem;
@@ -60,34 +59,52 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   width: 60vw;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1.4rem 1.2rem;
 `;
 
 export const Button = styled.button`
   font-size: inherit;
   font-family: inherit;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #fff;
+  color: #494c6b;
+  cursor: pointer;
 `;
 
 export const List = styled.ul`
   background-color: #fff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 0.5rem;
 `;
 
 export const Item = styled.li`
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  padding: 1.6rem 1.2rem;
   color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   color: #494c6b;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e3e4f1;
+  }
 `;
 
 export const ItemBox = styled.div`
   display: flex;
-  justify-content: space-between;
-
-  align-items: center;
 `;
 
 export const Label = styled.label`
   display: flex;
+  align-items: center;
 
   cursor: pointer;
 
@@ -115,4 +132,9 @@ export const Checkbox = styled.input`
     background: linear-gradient(#c058f3, #55ddff) padding-box,
       linear-gradient(to right, #55ddff, #c058f3) border-box;
   }
+`;
+
+export const DeleteBtn = styled.img`
+  height: 1.4rem;
+  cursor: pointer;
 `;
