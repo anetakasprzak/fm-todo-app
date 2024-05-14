@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   height: auto;
   object-fit: cover;
-  background-color: #fafafa;
-  color: #494c6b;
 `;
 
 export const ImageContainer = styled.div`
@@ -22,8 +20,14 @@ export const ImageContainer = styled.div`
 `;
 
 export const MainContent = styled.div`
-  margin-top: -15rem;
-  padding: 0rem 2.4rem;
+  width: 90vw;
+  padding: 0 2.4rem;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  margin: -15rem auto;
+
+  background-color: pink;
 `;
 
 export const Logo = styled.h1`
@@ -48,20 +52,43 @@ export const Logo = styled.h1`
   }
 `;
 
-export const Input = styled.input``;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
-export const List = styled.ul``;
+export const Input = styled.input`
+  width: 60vw;
+`;
+
+export const Button = styled.button`
+  font-size: inherit;
+  font-family: inherit;
+`;
+
+export const List = styled.ul`
+  background-color: #fff;
+`;
 
 export const Item = styled.li`
   font-size: 1.6rem;
   color: #fff;
   display: flex;
-  gap: 1.5rem;
+  justify-content: space-between;
+  color: #494c6b;
+`;
+
+export const ItemBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
 `;
 
 export const Label = styled.label`
-  display: grid;
-  place-items: center;
+  display: flex;
+
   cursor: pointer;
 
   > * {
@@ -89,7 +116,3 @@ export const Checkbox = styled.input`
       linear-gradient(to right, #55ddff, #c058f3) border-box;
   }
 `;
-
-export const Form = styled.form``;
-
-export const Button = styled.button``;

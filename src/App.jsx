@@ -11,10 +11,13 @@ import {
   Form,
   Label,
   Checkbox,
+  ItemBox,
 } from "./App";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([
+    { id: 1, text: "wash car", completed: false },
+  ]);
 
   const [todoText, setTodoText] = useState("");
 
@@ -50,11 +53,13 @@ function App() {
         <List>
           {todos?.map((item) => (
             <Item key={item.id}>
-              <Label htmlFor="test">
-                <Checkbox id="test" type="checkbox" />
-                <img src="./images/icon-check.svg" />
-              </Label>
-              {item.text}
+              <ItemBox>
+                <Label htmlFor="test">
+                  <Checkbox id="test" type="checkbox" />
+                  <img src="./images/icon-check.svg" />
+                </Label>
+                {item.text}
+              </ItemBox>
               <img src="./images/icon-cross.svg" />
             </Item>
           ))}
