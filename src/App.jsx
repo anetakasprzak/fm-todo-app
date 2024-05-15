@@ -16,6 +16,10 @@ import {
   ClearLeftBox,
   ItemsLeft,
   ClearBtn,
+  ButtonsBox,
+  AllBtn,
+  ActiveBtn,
+  CompletedBtn,
 } from "./App";
 
 function App() {
@@ -59,6 +63,7 @@ function App() {
           />
           <Button>ADD</Button>
         </Form>
+
         <List>
           {todos?.map((item) => (
             <Item key={item.id}>
@@ -80,6 +85,12 @@ function App() {
             <ClearBtn>Clear completed</ClearBtn>
           </ClearLeftBox>
         </List>
+
+        <ButtonsBox>
+          <AllBtn>All</AllBtn>
+          <ActiveBtn>Active</ActiveBtn>
+          <CompletedBtn>Completed</CompletedBtn>
+        </ButtonsBox>
       </MainContent>
     </Wrapper>
   );

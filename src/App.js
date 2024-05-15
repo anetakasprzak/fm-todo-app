@@ -21,7 +21,7 @@ export const ImageContainer = styled.div`
 
 export const MainContent = styled.div`
   width: 90vw;
-  padding: 0 2.4rem;
+  padding: 0;
   margin: -15rem auto;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  width: 60vw;
+  width: 70vw;
   font-family: inherit;
   font-size: 1.2rem;
   border-radius: 0.5rem;
@@ -69,7 +69,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   font-size: inherit;
   font-family: inherit;
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 0.5rem;
   border: none;
   background-color: #fff;
@@ -155,4 +155,45 @@ export const ClearBtn = styled.button`
   font-family: inherit;
   color: inherit;
   font-size: inherit;
+`;
+
+export const ButtonsBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  padding: 1.6rem 6rem;
+`;
+
+export const AllBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  color: #9495a5;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.194px;
+`;
+
+export const ActiveBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  color: #9495a5;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.194px;
+`;
+
+export const CompletedBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  color: #9495a5;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.194px;
 `;
