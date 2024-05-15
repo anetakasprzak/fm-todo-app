@@ -176,6 +176,8 @@ export const AllBtn = styled.button`
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
+
+  cursor: pointer;
 `;
 
 export const ActiveBtn = styled.button`
@@ -186,6 +188,8 @@ export const ActiveBtn = styled.button`
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
+
+  cursor: pointer;
 `;
 
 export const CompletedBtn = styled.button`
@@ -196,4 +200,14 @@ export const CompletedBtn = styled.button`
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
+
+  cursor: pointer;
+`;
+
+export const DragDropText = styled.p`
+  text-align: center;
+  color: #9495a5;
+  font-size: 1.4rem;
+  letter-spacing: -0.194px;
+  margin-top: 3.2rem;
 `;

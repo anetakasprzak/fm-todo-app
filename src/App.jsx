@@ -20,6 +20,7 @@ import {
   AllBtn,
   ActiveBtn,
   CompletedBtn,
+  DragDropText,
 } from "./App";
 
 function App() {
@@ -91,6 +92,8 @@ function App() {
           <ActiveBtn>Active</ActiveBtn>
           <CompletedBtn>Completed</CompletedBtn>
         </ButtonsBox>
+
+        <DragDropText>Drag and drop to reorder list</DragDropText>
       </MainContent>
     </Wrapper>
   );
