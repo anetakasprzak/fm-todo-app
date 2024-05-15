@@ -22,6 +22,7 @@ import {
   ActiveBtn,
   CompletedBtn,
   DragDropText,
+  CheckboxWrapper,
 } from "./App";
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
     const newTodo = {
       id: uuidv4(),
       text: todoText,
-      completed: false,
+      completed: true,
     };
 
     setTodos((prevTodos) => [...prevTodos, newTodo]);
@@ -74,11 +75,13 @@ function App() {
           {todos?.map((item) => (
             <Item key={item.id}>
               <ItemBox>
-                <Label htmlFor="test">
-                  <Checkbox id="test" type="checkbox" />
-                  <img src="./images/icon-check.svg" />
+                <Label htmlFor={item.id}>
+                  <CheckboxWrapper>
+                    <Checkbox id={item.id} type="checkbox" />
+                    <img src="./images/icon-check.svg" />
+                  </CheckboxWrapper>
+                  {item.text}
                 </Label>
-                {item.text}
               </ItemBox>
               <DeleteBtn
                 src="./images/icon-cross.svg"

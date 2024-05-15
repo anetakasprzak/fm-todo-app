@@ -100,11 +100,19 @@ export const Item = styled.li`
 
 export const ItemBox = styled.div`
   display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 export const Label = styled.label`
   display: flex;
   align-items: center;
+  gap: 1.2rem;
+`;
+
+export const CheckboxWrapper = styled.div`
+  display: grid;
+  place-items: center;
 
   cursor: pointer;
 
