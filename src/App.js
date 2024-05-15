@@ -85,7 +85,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   font-size: 1.2rem;
-  padding: 1.6rem 1.2rem;
+  padding: 1.6rem 2rem;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -137,4 +137,22 @@ export const Checkbox = styled.input`
 export const DeleteBtn = styled.img`
   height: 1.4rem;
   cursor: pointer;
+`;
+
+export const ClearLeftBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #9495a5;
+  padding: 1.6rem 2rem;
+`;
+
+export const ItemsLeft = styled.span``;
+
+export const ClearBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
 `;

@@ -13,6 +13,9 @@ import {
   Checkbox,
   ItemBox,
   DeleteBtn,
+  ClearLeftBox,
+  ItemsLeft,
+  ClearBtn,
 } from "./App";
 
 function App() {
@@ -72,6 +75,10 @@ function App() {
               />
             </Item>
           ))}
+          <ClearLeftBox>
+            <ItemsLeft>5 items left</ItemsLeft>
+            <ClearBtn>Clear completed</ClearBtn>
+          </ClearLeftBox>
         </List>
       </MainContent>
     </Wrapper>
