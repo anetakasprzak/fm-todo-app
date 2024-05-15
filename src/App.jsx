@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import {
   ImageContainer,
   Wrapper,
@@ -25,7 +26,11 @@ import {
 
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "wash car", completed: false },
+    {
+      id: "5b5f69bb-88be-4562-9687-7cc6b4f44db1",
+      text: "wash car",
+      completed: false,
+    },
   ]);
 
   const [todoText, setTodoText] = useState("");
@@ -36,7 +41,7 @@ function App() {
     if (todoText === "") return;
 
     const newTodo = {
-      id: todos.length + 1,
+      id: uuidv4(),
       text: todoText,
       completed: false,
     };
