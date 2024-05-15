@@ -108,6 +108,12 @@ export const Label = styled.label`
   display: flex;
   align-items: center;
   gap: 1.2rem;
+
+  span {
+    opacity: ${({ completed }) => (completed ? "0.5" : "1")};
+    text-decoration: ${({ completed }) =>
+      completed ? "line-through" : "none"};
+  }
 `;
 
 export const CheckboxWrapper = styled.div`

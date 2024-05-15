@@ -44,14 +44,22 @@ function App() {
     const newTodo = {
       id: uuidv4(),
       text: todoText,
-      completed: true,
+      completed: false,
     };
 
     setTodos((prevTodos) => [...prevTodos, newTodo]);
     setTodoText("");
   }
 
-  function handleDeleteItem(id) {
+  function handleToggleTodo(id) {
+    setTodos((todos) =>
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  }
+
+  function handleDeleteTodo(id) {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }
 
@@ -72,20 +80,25 @@ function App() {
         </Form>
 
         <List>
-          {todos?.map((item) => (
-            <Item key={item.id}>
+          {todos?.map((todo) => (
+            <Item key={todo.id}>
               <ItemBox>
-                <Label htmlFor={item.id}>
+                <Label htmlFor={todo.id} completed={todo.completed}>
                   <CheckboxWrapper>
-                    <Checkbox id={item.id} type="checkbox" />
+                    <Checkbox
+                      id={todo.id}
+                      type="checkbox"
+                      checked={todo.completed}
+                      onChange={() => handleToggleTodo(todo.id)}
+                    />
                     <img src="./images/icon-check.svg" />
                   </CheckboxWrapper>
-                  {item.text}
+                  <span>{todo.text}</span>
                 </Label>
               </ItemBox>
               <DeleteBtn
                 src="./images/icon-cross.svg"
-                onClick={() => handleDeleteItem(item.id)}
+                onClick={() => handleDeleteTodo(todo.id)}
               />
             </Item>
           ))}
