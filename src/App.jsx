@@ -34,6 +34,8 @@ function App() {
     },
   ]);
 
+  const todosLeft = todos.filter((todo) => !todo.completed).length;
+
   const [todoText, setTodoText] = useState("");
 
   function handleSubmit(e) {
@@ -103,7 +105,7 @@ function App() {
             </Item>
           ))}
           <ClearLeftBox>
-            <ItemsLeft>5 items left</ItemsLeft>
+            <ItemsLeft>{todosLeft} items left</ItemsLeft>
             <ClearBtn>Clear completed</ClearBtn>
           </ClearLeftBox>
         </List>
