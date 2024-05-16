@@ -34,8 +34,20 @@ function App() {
     },
   ]);
   const [todoText, setTodoText] = useState("");
+  const [filter, setFilter] = useState("all");
 
   const todosLeft = todos.filter((todo) => !todo.completed).length;
+
+  function getTodos() {
+    switch (filter) {
+      case "all":
+        return todos;
+      case "active":
+        return todos.filter((todo) => !todo.completed);
+      case "completed":
+        return todos.filter((todo) => todo.completed);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -85,7 +97,7 @@ function App() {
         </Form>
 
         <List>
-          {todos?.map((todo) => (
+          {getTodos()?.map((todo) => (
             <Item key={todo.id}>
               <ItemBox>
                 <Label htmlFor={todo.id} completed={todo.completed}>
@@ -114,9 +126,11 @@ function App() {
         </List>
 
         <ButtonsBox>
-          <AllBtn>All</AllBtn>
-          <ActiveBtn>Active</ActiveBtn>
-          <CompletedBtn>Completed</CompletedBtn>
+          <AllBtn onClick={() => setFilter("all")}>All</AllBtn>
+          <ActiveBtn onClick={() => setFilter("active")}>Active</ActiveBtn>
+          <CompletedBtn onClick={() => setFilter("completed")}>
+            Completed
+          </CompletedBtn>
         </ButtonsBox>
 
         <DragDropText>Drag and drop to reorder list</DragDropText>
