@@ -33,10 +33,9 @@ function App() {
       completed: false,
     },
   ]);
+  const [todoText, setTodoText] = useState("");
 
   const todosLeft = todos.filter((todo) => !todo.completed).length;
-
-  const [todoText, setTodoText] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -63,6 +62,10 @@ function App() {
 
   function handleDeleteTodo(id) {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  }
+
+  function handleClearCompleted() {
+    setTodos((todos) => todos.filter((todo) => !todo.completed));
   }
 
   return (
@@ -106,7 +109,7 @@ function App() {
           ))}
           <ClearLeftBox>
             <ItemsLeft>{todosLeft} items left</ItemsLeft>
-            <ClearBtn>Clear completed</ClearBtn>
+            <ClearBtn onClick={handleClearCompleted}>Clear completed</ClearBtn>
           </ClearLeftBox>
         </List>
 

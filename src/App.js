@@ -169,6 +169,7 @@ export const ClearBtn = styled.button`
   font-family: inherit;
   color: inherit;
   font-size: inherit;
+  cursor: pointer;
 `;
 
 export const ButtonsBox = styled.div`
