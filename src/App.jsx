@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import {
   ImageContainer,
   Wrapper,
@@ -37,6 +38,16 @@ function App() {
   const [filter, setFilter] = useState("all");
 
   const todosLeft = todos.filter((todo) => !todo.completed).length;
+
+  function handleOnDragEnd(result) {
+    if (!result.destination) return;
+
+    const items = Array.from(todos);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setTodos(items);
+  }
 
   function getTodos() {
     switch (filter) {
@@ -96,39 +107,62 @@ function App() {
           <Button>ADD</Button>
         </Form>
 
-        <List>
-          {getTodos()?.map((todo) => (
-            <Item key={todo.id}>
-              <ItemBox>
-                <Label htmlFor={todo.id} completed={todo.completed}>
-                  <CheckboxWrapper>
-                    <Checkbox
-                      id={todo.id}
-                      type="checkbox"
-                      checked={todo.completed}
-                      onChange={() => handleToggleTodo(todo.id)}
-                    />
-                    <img src="./images/icon-check.svg" />
-                  </CheckboxWrapper>
-                  <span>{todo.text}</span>
-                </Label>
-              </ItemBox>
-              <DeleteBtn
-                src="./images/icon-cross.svg"
-                onClick={() => handleDeleteTodo(todo.id)}
-              />
-            </Item>
-          ))}
-          <ClearLeftBox>
-            <ItemsLeft>{todosLeft} items left</ItemsLeft>
-            <ClearBtn onClick={handleClearCompleted}>Clear completed</ClearBtn>
-          </ClearLeftBox>
-        </List>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="id">
+            {(provided) => (
+              <List {...provided.droppableProps} ref={provided.innerRef}>
+                {getTodos()?.map(({ id, text, completed }, index) => {
+                  return (
+                    <Draggable key={id} draggableId={id} index={index}>
+                      {(provided) => (
+                        <Item
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <ItemBox>
+                            <Label htmlFor={id} completed={completed}>
+                              <CheckboxWrapper>
+                                <Checkbox
+                                  id={id}
+                                  type="checkbox"
+                                  checked={completed}
+                                  onChange={() => handleToggleTodo(id)}
+                                />
+                                <img src="./images/icon-check.svg" />
+                              </CheckboxWrapper>
+                              <span>{text}</span>
+                            </Label>
+                          </ItemBox>
+                          <DeleteBtn
+                            src="./images/icon-cross.svg"
+                            onClick={() => handleDeleteTodo(id)}
+                          />
+                        </Item>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+                <ClearLeftBox>
+                  <ItemsLeft>{todosLeft} items left</ItemsLeft>
+                  <ClearBtn onClick={handleClearCompleted}>
+                    Clear completed
+                  </ClearBtn>
+                </ClearLeftBox>
+              </List>
+            )}
+          </Droppable>
+        </DragDropContext>
 
         <ButtonsBox>
-          <AllBtn onClick={() => setFilter("all")}>All</AllBtn>
-          <ActiveBtn onClick={() => setFilter("active")}>Active</ActiveBtn>
-          <CompletedBtn onClick={() => setFilter("completed")}>
+          <AllBtn filter={filter} onClick={() => setFilter("all")}>
+            All
+          </AllBtn>
+          <ActiveBtn filter={filter} onClick={() => setFilter("active")}>
+            Active
+          </ActiveBtn>
+          <CompletedBtn filter={filter} onClick={() => setFilter("completed")}>
             Completed
           </CompletedBtn>
         </ButtonsBox>

@@ -187,11 +187,10 @@ export const AllBtn = styled.button`
   border: none;
   background-color: transparent;
   font-family: inherit;
-  color: #9495a5;
+  color: ${(props) => (props.filter === "all" ? "#3A7CFD" : "#9495a5")};
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
-
   cursor: pointer;
 `;
 
@@ -199,7 +198,8 @@ export const ActiveBtn = styled.button`
   border: none;
   background-color: transparent;
   font-family: inherit;
-  color: #9495a5;
+  color: ${(props) => (props.filter === "active" ? "#3A7CFD" : "#9495a5")};
+
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
@@ -211,7 +211,8 @@ export const CompletedBtn = styled.button`
   border: none;
   background-color: transparent;
   font-family: inherit;
-  color: #9495a5;
+  color: ${(props) => (props.filter === "completed" ? "#3A7CFD" : "#9495a5")};
+
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.194px;
