@@ -136,6 +136,7 @@ function App() {
                           </ItemBox>
                           <DeleteBtn
                             src="./images/icon-cross.svg"
+                            completed={completed}
                             onClick={() => handleDeleteTodo(id)}
                           />
                         </Item>

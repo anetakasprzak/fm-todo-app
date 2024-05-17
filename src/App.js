@@ -26,6 +26,18 @@ export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  @media only screen and (min-width: 31.25rem) {
+    margin: -25rem auto;
+  }
+
+  @media only screen and (min-width: 35rem) {
+    max-width: 54rem;
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    gap: 2rem;
+  }
 `;
 
 export const Logo = styled.h1`
@@ -40,7 +52,7 @@ export const Logo = styled.h1`
     letter-spacing: 1.2rem;
   }
 
-  @media only screen and (min-width: 37.75rem) {
+  @media only screen and (min-width: 31.25rem) {
     font-size: 3.6rem;
     letter-spacing: 1.3rem;
   }
@@ -64,17 +76,43 @@ export const Input = styled.input`
   border-radius: 0.5rem;
   border: none;
   padding: 1.4rem 1.2rem;
+
+  @media only screen and (min-width: 28rem) {
+    width: 73vw;
+  }
+
+  @media only screen and (min-width: 35rem) {
+    max-width: 45rem;
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.4rem;
+    padding: 1.4rem 2rem;
+  }
 `;
 
 export const Button = styled.button`
   font-size: inherit;
   font-family: inherit;
-  padding: 1.4rem;
+  padding: 1.4rem 1.6rem;
   border-radius: 0.5rem;
   border: none;
   background-color: #fff;
   color: #494c6b;
   cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #3a7cfd;
+  }
+
+  @media only screen and (min-width: 31.25rem) {
+    padding: 1.6rem 2rem;
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const List = styled.ul`
@@ -96,12 +134,21 @@ export const Item = styled.li`
   &:not(:last-child) {
     border-bottom: 1px solid #e3e4f1;
   }
+
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.4rem;
+    padding: 2rem 2.4rem;
+  }
 `;
 
 export const ItemBox = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media only screen and (min-width: 37.75rem) {
+    gap: 5rem;
+  }
 `;
 
 export const Label = styled.label`
@@ -113,6 +160,10 @@ export const Label = styled.label`
     opacity: ${({ completed }) => (completed ? "0.5" : "1")};
     text-decoration: ${({ completed }) =>
       completed ? "line-through" : "none"};
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    gap: 1.5rem;
   }
 `;
 
@@ -151,6 +202,7 @@ export const Checkbox = styled.input`
 export const DeleteBtn = styled.img`
   height: 1.4rem;
   cursor: pointer;
+  display: ${({ completed }) => (completed ? "none" : "block")};
 `;
 
 export const ClearLeftBox = styled.div`
@@ -161,7 +213,12 @@ export const ClearLeftBox = styled.div`
   padding: 1.6rem 2rem;
 `;
 
-export const ItemsLeft = styled.span``;
+export const ItemsLeft = styled.span`
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.4rem;
+    padding: 1rem 1.4rem;
+  }
+`;
 
 export const ClearBtn = styled.button`
   border: none;
@@ -170,6 +227,16 @@ export const ClearBtn = styled.button`
   color: inherit;
   font-size: inherit;
   cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: #494c6b;
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const ButtonsBox = styled.div`
@@ -181,6 +248,14 @@ export const ButtonsBox = styled.div`
   background-color: #fff;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   padding: 1.6rem 6rem;
+
+  @media only screen and (min-width: 28rem) {
+    padding: 1.6rem 8rem;
+  }
+
+  @media only screen and (min-width: 37.75rem) {
+    padding: 2.2rem 10rem;
+  }
 `;
 
 export const AllBtn = styled.button`
@@ -192,6 +267,11 @@ export const AllBtn = styled.button`
   font-weight: 700;
   letter-spacing: -0.194px;
   cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #494c6b;
+  }
 `;
 
 export const ActiveBtn = styled.button`
@@ -205,6 +285,12 @@ export const ActiveBtn = styled.button`
   letter-spacing: -0.194px;
 
   cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: #494c6b;
+  }
 `;
 
 export const CompletedBtn = styled.button`
@@ -218,6 +304,12 @@ export const CompletedBtn = styled.button`
   letter-spacing: -0.194px;
 
   cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: #494c6b;
+  }
 `;
 
 export const DragDropText = styled.p`
@@ -226,4 +318,8 @@ export const DragDropText = styled.p`
   font-size: 1.4rem;
   letter-spacing: -0.194px;
   margin-top: 3.2rem;
+
+  @media only screen and (min-width: 37.75rem) {
+    font-size: 1.6rem;
+  }
 `;
