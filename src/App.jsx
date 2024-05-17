@@ -24,16 +24,11 @@ import {
   CompletedBtn,
   DragDropText,
   CheckboxWrapper,
+  NoTodos,
 } from "./App";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: "5b5f69bb-88be-4562-9687-7cc6b4f44db1",
-      text: "wash car",
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
   const [todoText, setTodoText] = useState("");
   const [filter, setFilter] = useState("all");
 
@@ -146,10 +141,16 @@ function App() {
                 })}
                 {provided.placeholder}
                 <ClearLeftBox>
-                  <ItemsLeft>{todosLeft} items left</ItemsLeft>
-                  <ClearBtn onClick={handleClearCompleted}>
-                    Clear completed
-                  </ClearBtn>
+                  {todos.length === 0 ? (
+                    <NoTodos>Add your todos : )</NoTodos>
+                  ) : (
+                    <>
+                      <ItemsLeft>{todosLeft} items left</ItemsLeft>
+                      <ClearBtn onClick={handleClearCompleted}>
+                        Clear completed
+                      </ClearBtn>{" "}
+                    </>
+                  )}
                 </ClearLeftBox>
               </List>
             )}

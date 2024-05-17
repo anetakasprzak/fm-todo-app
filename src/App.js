@@ -115,6 +115,8 @@ export const Button = styled.button`
   }
 `;
 
+export const NoTodos = styled.p``;
+
 export const List = styled.ul`
   background-color: #fff;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
@@ -318,6 +320,7 @@ export const DragDropText = styled.p`
   font-size: 1.4rem;
   letter-spacing: -0.194px;
   margin-top: 3.2rem;
+  padding-bottom: 3rem;
 
   @media only screen and (min-width: 37.75rem) {
     font-size: 1.6rem;
