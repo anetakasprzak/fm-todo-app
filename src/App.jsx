@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import {
@@ -28,11 +28,17 @@ import {
 } from "./App";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem("todos")) || []
+  );
   const [todoText, setTodoText] = useState("");
   const [filter, setFilter] = useState("all");
 
   const todosLeft = todos.filter((todo) => !todo.completed).length;
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
